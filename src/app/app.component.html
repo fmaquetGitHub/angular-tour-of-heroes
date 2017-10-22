@@ -1,13 +1,15 @@
 <h1>{{title}}</h1>
-    
-    <app-pokedex></app-pokedex>
 
-    <ul class="heroes">
-      <li *ngFor="let hero of heroes"
-        [class.selected]="hero === selectedHero"
-        (click)="onSelect(hero)">
-        <span class="badge">{{hero.id}}</span> {{hero.name}}
-      </li>
-    </ul>
+<app-pokedex></app-pokedex>
 
-     <hero-detail [hero]="selectedHero"></hero-detail>   
+<h2>Liste des Heroes</h2>
+<ul class="heroes">
+  <li *ngFor="let hero of heroes"
+      [class.selected]="hero === selectedHero"
+      (click)="onSelect(hero)">
+    <span class="badge">{{hero.id}}</span> {{hero.name}}
+  </li>
+</ul>
+
+
+<hero-detail [hero]="selectedHero"></hero-detail>

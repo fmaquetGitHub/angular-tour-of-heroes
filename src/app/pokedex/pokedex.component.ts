@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
-import { Pokemon } from '../models/pokemon';
-import { PokedexService} from '../pokedex.service'
+import {Pokemon} from '../models/pokemon';
+import {PokedexService} from '../pokedex.service'
 
 @Component({
   selector: 'app-pokedex',
@@ -11,13 +11,25 @@ import { PokedexService} from '../pokedex.service'
 })
 export class PokedexComponent implements OnInit {
 
-  pokemons : Pokemon[];
+  pokemons: Pokemon[];
+  errorMessage: string;
 
-  constructor(private pokedexService: PokedexService) { }
-
-  getPokemons(): void {
-    this.pokedexService.getPokemons().then(pokemons => this.pokemons = pokemons);
+  constructor(private pokedexService: PokedexService) {
   }
+
+  getPokemons2(): void {
+    // this.pokedexService.getPokemons().then(pokemons => this.pokemons = pokemons);
+    //this.pokedexService.getPokemonsInfo().then(pokemons => this.pokemons = pokemons);
+  }
+
+
+  getPokemons() {
+    this.pokedexService.getPokemonsFromApi()
+      .subscribe(
+        pokemons => this.pokemons = pokemons,
+        error => this.errorMessage = <any>error);
+  }
+
 
   ngOnInit() {
     this.getPokemons();
