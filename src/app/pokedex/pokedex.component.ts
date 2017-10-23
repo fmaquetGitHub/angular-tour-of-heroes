@@ -17,12 +17,6 @@ export class PokedexComponent implements OnInit {
   constructor(private pokedexService: PokedexService) {
   }
 
-  getPokemons2(): void {
-    // this.pokedexService.getPokemons().then(pokemons => this.pokemons = pokemons);
-    //this.pokedexService.getPokemonsInfo().then(pokemons => this.pokemons = pokemons);
-  }
-
-
   getPokemons() {
     this.pokedexService.getPokemonsFromApi()
       .subscribe(

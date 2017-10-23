@@ -5,19 +5,29 @@ import {AppComponent} from './app.component';
 import {HeroDetailComponent} from './hero-detail.component';
 import {PokedexComponent} from './pokedex/pokedex.component';
 
-
 import {HttpModule} from '@angular/http';
+
+import {RouterModule, Routes} from '@angular/router';
+import { HomeComponent } from './home/home.component';
+
+const appRoutes: Routes = [
+  {path: 'pokedex', component: PokedexComponent},
+  {path: '', component: HomeComponent},
+];
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
     HeroDetailComponent,
-    PokedexComponent
+    PokedexComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule, // <-- import the FormsModule before binding with [(ngModel)]
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(appRoutes),
   ],
   providers: [],
   bootstrap: [AppComponent]
