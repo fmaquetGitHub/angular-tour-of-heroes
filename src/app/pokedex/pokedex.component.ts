@@ -20,10 +20,11 @@ export class PokedexComponent implements OnInit {
   getPokemons() {
     this.pokedexService.getPokemonsFromApi()
       .subscribe(
-        pokemons => this.pokemons = pokemons,
+        pokemons => localStorage.setItem('pokedex', JSON.stringify(pokemons)),
         error => this.errorMessage = <any>error);
-  }
 
+    this.pokemons = JSON.parse(localStorage.getItem('pokedex'));
+  }
 
   ngOnInit() {
     this.getPokemons();
