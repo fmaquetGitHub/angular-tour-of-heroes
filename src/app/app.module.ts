@@ -10,10 +10,12 @@ import {HttpModule} from '@angular/http';
 import {RouterModule, Routes} from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { HeroesComponent } from './heroes/heroes.component';
+import { AuthComponent } from './auth/auth.component';
 
 const appRoutes: Routes = [
   {path: 'pokedex', component: PokedexComponent},
   {path: 'heroes', component: HeroesComponent},
+  {path: 'register', component: AuthComponent},
   {path: '', component: HomeComponent},
 ];
 
@@ -24,7 +26,8 @@ const appRoutes: Routes = [
     HeroDetailComponent,
     PokedexComponent,
     HomeComponent,
-    HeroesComponent
+    HeroesComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
